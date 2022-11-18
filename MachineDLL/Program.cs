@@ -22,6 +22,7 @@ namespace MachineDLL
         {
         }
 
+
         public Program(Boolean Offline )
         {
             bOffline = Offline;
