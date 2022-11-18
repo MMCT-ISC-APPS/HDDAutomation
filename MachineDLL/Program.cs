@@ -21,8 +21,7 @@ namespace MachineDLL
         static void Main(string[] args)
         {
         }
-
-
+        //test Git Hub by Theerapat C.
         public Program(Boolean Offline )
         {
             bOffline = Offline;
