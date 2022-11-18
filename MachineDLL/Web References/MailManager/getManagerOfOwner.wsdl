@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:intf="urn:DefaultNamespace" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:impl="urn:DefaultNamespace" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:DefaultNamespace" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:DefaultNamespace">
+      <xsd:element name="EMPNO" type="xsd:string" />
+      <xsd:complexType name="EMPLOYEEMANAGEROFOWNER">
+        <xsd:sequence>
+          <xsd:element name="USERNAME" type="xsd:string" />
+          <xsd:element name="EMAIL" type="xsd:string" />
+          <xsd:element name="DEPARTMENT" type="xsd:string" />
+          <xsd:element name="STATUS" type="xsd:short" />
+          <xsd:element name="EMPLOYEENO" type="xsd:string" />
+          <xsd:element name="APPLEVEL" type="xsd:string" />
+          <xsd:element name="ERRORMESSAGE" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="READMANAGEROFOWNERReturn" type="impl:EMPLOYEEMANAGEROFOWNER" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="READMANAGEROFOWNERResponse">
+    <wsdl:part name="READMANAGEROFOWNERReturn" element="impl:READMANAGEROFOWNERReturn" />
+  </wsdl:message>
+  <wsdl:message name="READMANAGEROFOWNERRequest">
+    <wsdl:part name="EMPNO" element="impl:EMPNO" />
+  </wsdl:message>
+  <wsdl:portType name="getManagerOfOwner">
+    <wsdl:operation name="READMANAGEROFOWNER">
+      <wsdl:input name="READMANAGEROFOWNERRequest" message="impl:READMANAGEROFOWNERRequest" />
+      <wsdl:output name="READMANAGEROFOWNERResponse" message="impl:READMANAGEROFOWNERResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DominoSoapBinding" type="impl:getManagerOfOwner">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="READMANAGEROFOWNER">
+      <wsdlsoap:operation soapAction="READMANAGEROFOWNER" />
+      <wsdl:input name="READMANAGEROFOWNERRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="READMANAGEROFOWNERResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="getManagerOfOwnerService">
+    <wsdl:port name="Domino" binding="impl:DominoSoapBinding">
+      <wsdlsoap:address location="http://mmctmail:80/PR/Employee.nsf/getManagerOfOwner?OpenWebService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

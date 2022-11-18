@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:intf="urn:DefaultNamespace" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:impl="urn:DefaultNamespace" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:DefaultNamespace" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:DefaultNamespace">
+      <xsd:element name="EMPNO" type="xsd:string" />
+      <xsd:complexType name="EMPLOYEEMAILINFO">
+        <xsd:sequence>
+          <xsd:element name="USERNAME" type="xsd:string" />
+          <xsd:element name="EMAIL" type="xsd:string" />
+          <xsd:element name="DEPARTMENT" type="xsd:string" />
+          <xsd:element name="APPLEVEL" type="xsd:string" />
+          <xsd:element name="STATUS" type="xsd:short" />
+          <xsd:element name="ERRORMESSAGE" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="READMAILINFOReturn" type="impl:EMPLOYEEMAILINFO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="READMAILINFORequest">
+    <wsdl:part name="EMPNO" element="impl:EMPNO" />
+  </wsdl:message>
+  <wsdl:message name="READMAILINFOResponse">
+    <wsdl:part name="READMAILINFOReturn" element="impl:READMAILINFOReturn" />
+  </wsdl:message>
+  <wsdl:portType name="getMailInfo">
+    <wsdl:operation name="READMAILINFO">
+      <wsdl:input name="READMAILINFORequest" message="impl:READMAILINFORequest" />
+      <wsdl:output name="READMAILINFOResponse" message="impl:READMAILINFOResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DominoSoapBinding" type="impl:getMailInfo">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="READMAILINFO">
+      <wsdlsoap:operation soapAction="READMAILINFO" />
+      <wsdl:input name="READMAILINFORequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="READMAILINFOResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="getMailInfoService">
+    <wsdl:port name="Domino" binding="impl:DominoSoapBinding">
+      <wsdlsoap:address location="http://mmctmail.mektec.co.th:80/PR/Employee.nsf/getMailInfo?OpenWebService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

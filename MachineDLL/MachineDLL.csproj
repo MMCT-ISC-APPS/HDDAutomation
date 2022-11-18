@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{07BFED54-230A-428B-AA1C-B3B2AF5B10F1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MachineDLL</RootNamespace>
+    <AssemblyName>MachineDll</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DnsClient, Version=1.3.2.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
+      <HintPath>..\packages\DnsClient.1.3.2\lib\net45\DnsClient.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AITraceability.cs" />
+    <Compile Include="BraketReader.cs" />
+    <Compile Include="Common\Converter.cs" />
+    <Compile Include="Common\UtilityDll.cs" />
+    <Compile Include="Common\DBFactorySQL.cs" />
+    <Compile Include="DAO\Common\AuthenticationDAO.cs" />
+    <Compile Include="DAO\Oracle\BoxInfoDAO.cs" />
+    <Compile Include="DAO\Oracle\BundleDAO.cs" />
+    <Compile Include="DAO\Oracle\ItemMasterDAO.cs" />
+    <Compile Include="DAO\Common\ListOfValueDAO.cs" />
+    <Compile Include="DAO\Rework\ReworkDAO.cs" />
+    <Compile Include="DAO\Common\SystemMessageDAO.cs" />
+    <Compile Include="DAO\Common\SystemParamDAO.cs" />
+    <Compile Include="DAO\TMS\PMRecordDAO.cs" />
+    <Compile Include="Entities\Common\BaseDate.cs" />
+    <Compile Include="Entities\Machines\AutoDictConfigurationM.cs" />
+    <Compile Include="Entities\Machines\AutoDictLayoutM.cs" />
+    <Compile Include="Entities\Machines\AutoDictModelConfigM.cs" />
+    <Compile Include="Entities\Machines\AutoDictProdLineConfigM.cs" />
+    <Compile Include="Entities\Machines\FixtureResult.cs" />
+    <Compile Include="Entities\Logs\ActionM.cs" />
+    <Compile Include="Entities\Logs\LogHeaderM.cs" />
+    <Compile Include="Entities\Machines\MachineInfoM.cs" />
+    <Compile Include="Entities\Oracle\BoxInfoM.cs" />
+    <Compile Include="Entities\Oracle\BundleInfoM.cs" />
+    <Compile Include="Entities\Common\EntityBase.cs" />
+    <Compile Include="Entities\Common\FileInfoM.cs" />
+    <Compile Include="Entities\Oracle\ItemMasterM.cs" />
+    <Compile Include="Entities\Rework\ItemReworkInfoM.cs" />
+    <Compile Include="Entities\Common\ListOfValueDataM.cs" />
+    <Compile Include="Entities\Rework\ReworkCriteriaM.cs" />
+    <Compile Include="Entities\Rework\ReworkInfoM.cs" />
+    <Compile Include="Entities\Common\SystemMessageM.cs" />
+    <Compile Include="Entities\Common\SystemParamM.cs" />
+    <Compile Include="Entities\Common\UserInfoM .cs" />
+    <Compile Include="Entities\TMS\ItemStorage.cs" />
+    <Compile Include="Entities\Traceability\JobBySerialsM.cs" />
+    <Compile Include="Entities\Traceability\PanelWithSerialsM.cs" />
+    <Compile Include="Infrastructure\DBFactory.cs" />
+    <Compile Include="Common\ProgramLogs.cs" />
+    <Compile Include="Common\SystemUtility.cs" />
+    <Compile Include="DAO\Oracle\JobInfoDAO.cs" />
+    <Compile Include="DAO\Machine\MachineDAO.cs" />
+    <Compile Include="DAO\Traceability\PanelInfoDAO.cs" />
+    <Compile Include="DAO\Traceability\PrintinfoDAO.cs" />
+    <Compile Include="DAO\Common\UtilityDAO.cs" />
+    <Compile Include="FunctionTestDLL.cs" />
+    <Compile Include="HHGTraceability.cs" />
+    <Compile Include="HSGTraceability.cs" />
+    <Compile Include="ItemMaster.cs" />
+    <Compile Include="Logs\DBLogger.cs" />
+    <Compile Include="Logs\EventLogger.cs" />
+    <Compile Include="Logs\FileLogger.cs" />
+    <Compile Include="Logs\LogBase.cs" />
+    <Compile Include="Logs\LogHelper.cs" />
+    <Compile Include="Machine.cs" />
+    <Compile Include="Entities\Common\ActionResultM.cs" />
+    <Compile Include="Entities\Oracle\JobinfoM.cs" />
+    <Compile Include="Entities\Traceability\PanelInfoM.cs" />
+    <Compile Include="Entities\Traceability\PrintinfoM.cs" />
+    <Compile Include="MMCTAutoPacking.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Controller\SystemController.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ReworkProcess.cs" />
+    <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="ToolingManagement.cs" />
+    <Compile Include="Web References\getmailinfo\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\MailManager\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\getmailinfo\EMPLOYEEMAILINFO.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\getmailinfo\getMailInfo.wsdl" />
+    <None Include="Web References\getmailinfo\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\MailManager\EMPLOYEEMANAGEROFOWNER.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\MailManager\getManagerOfOwner.wsdl" />
+    <None Include="Web References\MailManager\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DAO\DCS\" />
+    <Folder Include="Entities\DCS\" />
+    <Folder Include="Util\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://mmctmail.mektec.co.th/PR/Employee.nsf/getMailInfo%3fWSDL">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\getmailinfo\</RelPath>
+      <UpdateFromURL>http://mmctmail.mektec.co.th/PR/Employee.nsf/getMailInfo%3fWSDL</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>MachineDLL_getmailinfo_getMailInfoService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://mmctmail/PR/Employee.nsf/getManagerOfOwner%3fWSDL">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\MailManager\</RelPath>
+      <UpdateFromURL>http://mmctmail/PR/Employee.nsf/getManagerOfOwner%3fWSDL</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>MachineDLL_MailManager_getManagerOfOwnerService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

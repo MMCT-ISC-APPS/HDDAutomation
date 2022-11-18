@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MachineDLL.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MachineDLL_getmailinfo_getMailInfoService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://mmctmail.mektec.co.th:80/PR/Employee.nsf/getMailInfo?OpenWebService</Value>
+    </Setting>
+    <Setting Name="MachineDLL_MailManager_getManagerOfOwnerService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://mmctmail:80/PR/Employee.nsf/getManagerOfOwner?OpenWebService</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
