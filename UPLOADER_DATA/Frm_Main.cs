@@ -1121,6 +1121,7 @@ namespace UPLOAD_FILE
         private void bgFCT_HDD_DoWork(object sender, DoWorkEventArgs e)
         {
             TM01.Enabled = false;
+            // Test
             try
             {
                 for (int j = 0; j < TMP_DT.Rows.Count; j++)
